@@ -16,13 +16,14 @@ const Home = () => {
 
   const signOut = async () => {
     await supabase.auth.signOut();
-    window.location.href = '/'; // Redirect to login after sign out
+    window.location.href = '/'; // Redirect to login page after logout
   };
 
   return (
     <div>
       <h1>Welcome {user?.email}!</h1>
-      <button onClick={signOut}>Sign Out</button>
+      <p>This is your main website content.</p>
+      <button onClick={signOut}>Log Out</button>
     </div>
   );
 };
