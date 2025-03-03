@@ -5,11 +5,13 @@ import ChoreManagementApp from './components/ChoreManagementApp';
 // Sign up, log in, and reset password functionality
 
 const Auth = () => {
+  // State to hold email, password, loading status, and message
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
+  // Function to handle sign-up
   const signUp = async () => {
     setLoading(true);
     setMessage('');
@@ -22,6 +24,7 @@ const Auth = () => {
     setLoading(false);
   };
 
+  // Function to handle sign-in
   const signIn = async () => {
     setLoading(true);
     setMessage('');
@@ -34,6 +37,7 @@ const Auth = () => {
     setLoading(false);
   };
 
+  // Function to handle password reset
   const resetPassword = async () => {
     setLoading(true);
     setMessage('');
@@ -51,11 +55,17 @@ const Auth = () => {
   return (
     <div>
       <h2>Sign Up / Log In</h2>
+      {/* Input for email */}
       <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+      {/* Input for password */}
       <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+      {/* Button to trigger sign-up */}
       <button onClick={signUp} disabled={loading}>Sign Up</button>
+      {/* Button to trigger sign-in */}
       <button onClick={signIn} disabled={loading}>Log In</button>
+      {/* Button to trigger password reset */}
       <button onClick={resetPassword} disabled={loading}>Forgot Password?</button>
+      {/* Display message if exists */}
       {message && <p>{message}</p>}
     </div>
   );
